@@ -48,10 +48,10 @@ raw_wine %>%
     cols = -c(wine_idx,wine_type),
     names_to = "measure",
     values_to = "measurement") %>% 
-  ggplot(aes(x = measurement))+
+  ggplot(aes(x = measurement, col = as.factor(wine_type)))+
   geom_density() + 
   facet_wrap(
-    measure ~ wine_type,
+    measure ~ .,
     scales = "free",
     ncol = 4
     )
@@ -190,6 +190,9 @@ fit_workflows <- wf_set %>%
 doParallel::stopImplicitCluster()
 
 
+if(F){
+  saveRDS(fit_workflows, here::here("TidyTuesday_Explained","085-Tidy_Models_9","fit_workflows.rds"))
+}
 ```
 
 **This takes a long time, so we pre-ran this and saved it!**
@@ -311,7 +314,7 @@ fit_test %>%
   mutate(
     .pred_int = round(.pred)
   ) %>% 
-  select(
+  dplyr::select(
     quality, .pred_int
   ) %>% 
   table()

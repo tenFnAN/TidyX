@@ -128,8 +128,8 @@ set.seed(582)
 tune_rf <- tune_grid(
   penguins_wf,
   resamples = cv_folds,
-  # grid = rf_tune_grid
-  grid = 5
+  grid = rf_tune_grid,
+  # grid = 5
 )
 
 tune_rf

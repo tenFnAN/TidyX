@@ -334,7 +334,7 @@ model_KNN_caret <- function( train, test, ..., model_seed = 555, data_prep_funct
   }
   
   set.seed(model_seed)
-  ctrl <- trainControl(method="repeatedcv",repeats = 5)
+  ctrl <- trainControl(method="repeatedcv",repeats = 2)
   knnFit <- train(
     pitch_type ~ ., 
     data = train, 
@@ -438,7 +438,7 @@ model_rf_caret <- function( train, test, ..., model_seed = 555, data_prep_functi
   control <- trainControl(
     method = "repeatedcv",
     number = 5,
-    repeats = 5,
+    repeats = 1,
     search = "grid")
 
   set.seed(model_seed)
@@ -561,7 +561,7 @@ model_xgboost <- function( train, test, ..., model_seed = 555, data_prep_functio
         "objective"   = "multi:softprob"
       ),
       max.depth = 3,
-      nrounds = 1000,
+      nrounds = 100,
       watchlist = "train",
       nthreads = 3,
       early_stopping_rounds = 10
@@ -608,7 +608,7 @@ model_xgboost_caret <- function( train, test, ..., model_seed = 555, data_prep_f
                         classProbs = TRUE,
                         allowParallel = TRUE)
   
-  tune_grid <- expand.grid(nrounds = 1000,
+  tune_grid <- expand.grid(nrounds = 100,
                         eta = 0.01,
                         gamma = 0,
                         colsample_bytree = 1,
@@ -645,7 +645,7 @@ model_xgboost_caret <- function( train, test, ..., model_seed = 555, data_prep_f
                         number = 3,
                         classProbs = TRUE,
                         allowParallel = TRUE),
-      tunegrid = list(nrounds = 1000,
+      tunegrid = list(nrounds = 100,
                         eta = 0.01,
                         gamma = 0,
                         colsample_bytree = 1,

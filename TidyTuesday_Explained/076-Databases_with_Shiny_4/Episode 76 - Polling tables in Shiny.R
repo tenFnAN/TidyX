@@ -329,7 +329,7 @@ server <- function(input, output, session){
   
   ## commit updates and share comments
   observeEvent(input$commit,{
-    
+    browser()
     db_con <- dbConnect(
       drv = RSQLite::SQLite(),
       here::here(db_path)
@@ -395,8 +395,7 @@ server <- function(input, output, session){
       ## query database
       tbl(db_con, paste0("game_comments_",displayedData$game_id)) %>% collect()
     }
-  )
-  
+  ) 
   observeEvent(comments_updated(),{
     
     ## check if any differences between committed comments and current comments
@@ -455,9 +454,18 @@ server <- function(input, output, session){
     
     }
     
-  })
-  
+  }) 
 }
 
-
+# kiedy aktualizacja
+if(F){
+ 
+  as.POSIXct(dbGetQuery(db_con, paste0("SELECT time FROM game_comments_update_time_", 401327715))$time, origin = '1970-01-01')
+  
+  tbl(db_con, paste0("game_comments_",401327715)) %>% collect()
+}
 shinyApp(ui, server)
+
+
+
+

@@ -141,7 +141,7 @@ team_stats %>%
 
 #### Defaults to pulling last column
 team_stats %>% pull()
-team_stats %>% pluck()
+team_stats %>% pluck('Lg')
 
 
 

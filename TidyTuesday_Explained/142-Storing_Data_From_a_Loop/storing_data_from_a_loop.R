@@ -137,3 +137,78 @@ tmp_df
 ## Plot model residuals
 hist(x = tmp_df$mpg - tmp_df$preds )
 abline(v = 0, col = "red", lwd = 3)
+
+
+microbenchmark::microbenchmark(
+  'a' = { 
+    group_id <- unique(df$k_group)
+  preds <- list()
+  
+  ## k-fold cross validation
+  for(i in group_id){
+    
+    dat <- df %>% filter(k_group != i)
+    hold_out <- df %>% filter(k_group == i)
+    
+    fit <- lm(mpg ~ cyl + disp + hp, data = dat)
+    preds[[i]] <- predict(fit, newdata = hold_out)
+    
+  } } ,
+  'b' = { preds <- c()
+  
+  ## k-fold cross validation
+  for(i in group_id){
+    
+    dat <- df %>% filter(k_group != i)
+    hold_out <- df %>% filter(k_group == i)
+    
+    fit <- lm(mpg ~ cyl + disp + hp, data = dat)
+    
+    preds <- c(preds, predict(fit, newdata = hold_out))
+  } },
+  'c'= {
+    preds_df <- data.frame(
+      fold = numeric(0),
+      obs_mpg = numeric(0),
+      pred_mpg = numeric(0),
+      car = character(0)
+    )
+    
+    ## k-fold cross validation
+    for(i in group_id){
+      
+      dat <- df %>% filter(k_group != i)
+      hold_out <- df %>% filter(k_group == i)
+      
+      fit <- lm(mpg ~ cyl + disp + hp, data = dat)
+      
+      fold_df <- data.frame(
+        fold = i,
+        obs_mpg = hold_out$mpg,
+        pred_mpg = predict(fit, newdata = hold_out),
+        car = rownames(hold_out)
+      )
+      
+      preds_df <- rbind(preds_df, fold_df)
+      
+    }
+  },
+  'd' = {
+    tmp_df <- df
+    tmp_df$preds <- NA_real_
+    
+    ## k-fold cross validation
+    for(i in group_id){
+      
+      dat <- df %>% filter(k_group != i)
+      hold_out <- df %>% filter(k_group == i)
+      
+      fit <- lm(mpg ~ cyl + disp + hp, data = dat)
+      
+      preds_vec <- predict(fit, newdata = hold_out)
+      
+      tmp_df[names(preds_vec), "preds"] <- preds_vec
+      
+    }
+  }
+)

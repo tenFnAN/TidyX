@@ -228,22 +228,24 @@ tune_grid <- expand.grid(nrounds = 1000,
                         subsample = 1,
                         max_depth = seq(2, 8, by = 2))
 
-# ## This process can take a while, so lets make it faster with parallelization
-# cl <- makePSOCKcluster(7)
-# registerDoParallel(cl)
-# 
-# set.seed(7)
-# pitch_tune <- train(x = train_cleaned %>% select(-pitch_type, -pitch_type_num),
-#                   y = train_cleaned$pitch_type,
-#                   method = "xgbTree",
-#                   trControl = cross_val_ctrl,
-#                   tuneGrid = tune_grid,
-#                   metric = "Accuracy",
-#                   verbose = TRUE)
-# 
-# saveRDS(pitch_tune,file.path(bp, "xgboost_caret.rds"))
-# 
-# stopCluster(cl)
+## This process can take a while, so lets make it faster with parallelization
+if(F){
+cl <- makePSOCKcluster(7)
+registerDoParallel(cl)
+
+set.seed(7)
+pitch_tune <- train(x = train_cleaned %>% select(-pitch_type, -pitch_type_num),
+                  y = train_cleaned$pitch_type,
+                  method = "xgbTree",
+                  trControl = cross_val_ctrl,
+                  tuneGrid = tune_grid,
+                  metric = "Accuracy",
+                  verbose = TRUE)
+}
+
+saveRDS(pitch_tune,file.path(bp, "xgboost_caret.rds"))
+
+stopCluster(cl)
 
 pitch_tune <- readRDS(file.path(bp, "xgboost_caret.rds"))
 

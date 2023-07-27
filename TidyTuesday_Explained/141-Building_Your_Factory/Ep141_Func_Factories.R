@@ -73,6 +73,7 @@ ls(z_score_value_env)
 
 z_score_value_env$a
 z_score_value_env$s
+z_score_value_env$var
 
 mean(dat[dat$year < 2023,][["value"]])
 sd(dat[dat$year < 2023,][["value"]])

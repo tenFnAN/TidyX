@@ -149,8 +149,7 @@ nhl_test_pred %>%
   roc_curve(truth = playoffs, .pred_0) %>% 
   autoplot()
 
-
-
+ 
 nhl_test_pred %>% 
   roc_auc(truth = playoffs, .pred_0) ## defaults to first level of prediction class
 

@@ -32,7 +32,7 @@ agrep(
   pattern = "Cam Hanson Jr.",
   x = df_perf$name,
   max.distance = .5,## the smaller the number, the less "fuzzy"  
-  fixed = TRUE
+  fixed = TRUE,value = T
 )
 
 ## lets make a function, assuming every name is unique :grimace:

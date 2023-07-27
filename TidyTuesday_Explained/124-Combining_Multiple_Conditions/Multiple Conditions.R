@@ -63,8 +63,8 @@ d %>%
   ) %>%
   mutate(
     fruit_season4 = 
-      case_when(fruit %in% c("apple", "kiwi",) ~ "fall")
-  ) 
+      case_when(fruit %in% c("apple", "kiwi" ) ~ "fall")
+  ) %>%
   mutate(
     fruit_season = paste(fruit_season1, fruit_season2, fruit_season3,fruit_season4, sep = ", ")
   ) %>%
@@ -85,7 +85,7 @@ d %>%
   ) 
 
 d %>%
-  rowwise() %>% 
+  rowwise() %>%
   mutate(
     fruit_season = paste(c(
       if(fruit %in% c("apple", "orange", "banana")){"winter"},

@@ -17,7 +17,7 @@ theme_set(theme_minimal())
 
 1) Frequentist Statistics -- Based on the idea that probability represents the frequency with which something happens. Answer the question, *What's the probability of the data given my hypothesis?* p(Data | Hypothesis)
 
-2) Bayesian Statistics -- Concerned with how probabilities represent our uncertainty about information. Answers the question, *What's the probability of my hypothesis given my data?"* p(Hypothsis | Data)
+2) Bayesian Statistics -- Concerned with how probabilities represent our uncertainty about information. Answers the question, *What's the probability of my hypothesis given my data?"* p(Hypothesis | Data)
 
 **Bayesian Thinking**
 

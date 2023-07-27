@@ -40,6 +40,7 @@ subsided and stabilized around 275 training load units.
 
 * this is a [google link](www.google.com)
 
+Absolute File Path: <a href = "http://www.shinyapps.io/" target="_blank">shinyapps.io</a>
 
 Column {data-width=70}
 -----------------------------------------------------------------------

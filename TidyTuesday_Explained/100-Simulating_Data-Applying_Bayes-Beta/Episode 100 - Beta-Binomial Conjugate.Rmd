@@ -64,7 +64,7 @@ Let's see all hypotheses from 0 to 1 at 0.01 increments
 hypotheses <- seq(from = 0, to = 1, by = 0.01)
 
 plot(x = hypotheses,
-     y = dbinom(x = 16, size = 20, hypotheses), type = "l")
+     y = dbinom(x = 16, size = 20,prob =  hypotheses), type = "l")
 ```
 
 

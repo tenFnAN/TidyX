@@ -3,6 +3,8 @@ title: "Episode 52 - Presenting Penguins"
 author: "Ellis Hughes and Patrick Ward"
 date: "`r Sys.Date()`"
 output: xaringan::moon_reader
+editor_options:
+  chunk_output_type: console
 ---
 
 background-image: url(https://raw.githubusercontent.com/thebioengineer/TidyX/master/logo/TidyX_Profile.jpg)

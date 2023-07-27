@@ -18,7 +18,7 @@ x <- read_html("https://www.racing-statistics.com/en/seasons/1950")
 ## them, the ones without a table will be NULL
 
 year_tables <- x %>% 
-  html_nodes(".blocks") %>% 
+  # html_nodes(".blocks") %>% 
   html_table()
 
 Championship_Results <- year_tables[[1]] %>% 
@@ -43,7 +43,7 @@ f1_season_records <- function(year){
   ## "block2". from there we can call html table
   
   year_tables <- x %>% 
-    html_nodes(".blocks") %>% 
+    # html_nodes(".blocks") %>% 
     html_table()
   
   Championship_Results <- year_tables[[1]] %>% 

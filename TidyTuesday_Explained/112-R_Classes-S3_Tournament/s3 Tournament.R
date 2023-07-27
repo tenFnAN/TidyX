@@ -69,7 +69,7 @@ predict_team_performance(Jayhawks, 1000)
 
 ## To estimate which team will win a game, we run simulations.
 ## This function takes in two teams, and the number of simulations we plan on running/
-## it ges the predicted performance of nsims games, and then figures out which team
+## it goes the predicted performance of nsims games, and then figures out which team
 ## wins the most of the simulations.
 
 run_sim_game <- function(team1, team2, nsims = 10000){
@@ -105,6 +105,11 @@ run_sim_game <- function(team1, team2, nsims = 10000){
   }else{
     invisible(team2)
   }
+  # if(winner_t1){
+  #     team1 
+  # }else{
+  #     team2 
+  # }
 }
 
 run_sim_game(Jayhawks, Chickenhawks, 10000)

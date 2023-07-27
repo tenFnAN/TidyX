@@ -5,7 +5,7 @@ library(tidyverse)
 library(here)
 
 add_noise <- function(x){
-  x + rnorm(length(x), sd = sd(x))
+  x + rnorm(length(x), sd = sd(x, na.rm = T))
 }
 
 add_species_noise <- function(x, prob_accurate = 1){

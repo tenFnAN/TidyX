@@ -16,11 +16,11 @@ theme_set(theme_light())
 #### scrape Miami Heat @ Milwaukee Bucks (1st Rd | Game 2 Eastern Conference Playoffs, 2021) ####
 ## html
 espn_html <- read_html("https://www.espn.com/nba/playbyplay/_/gameId/401327878")
-
+ 
 espn_html %>%
   html_nodes("div") %>% html_attrs %>%     
   flatten_chr()
-html_nodes("#gp-quarter-1")
+  html_nodes("#gp-quarter-1")
 
 ## scrape elements for time stamps, play details, and score
 time_stamps <- espn_html %>%
@@ -47,8 +47,8 @@ espn_html %>%
 espn_html %>%
   html_nodes("div") %>%
   html_nodes(".tabs__list__item")  
-
-
+  
+ 
 
 possession_details <- espn_html %>%
   html_nodes("div") %>%
@@ -158,9 +158,9 @@ df %>%
 df %>%
   mutate(
     shot = case_when(
-      grepl("([Ss]hot|[Jj]ump|[Ll]ayup|[Dd]unk|[Tt]hree pointer)",play_details ) ~ 1,
-      TRUE ~ 0
-    )) %>%
+    grepl("([Ss]hot|[Jj]ump|[Ll]ayup|[Dd]unk|[Tt]hree pointer)",play_details ) ~ 1,
+    TRUE ~ 0
+  )) %>%
   summarize(total_shots = sum(shot, na.rm = TRUE))
 
 df %>%
@@ -239,12 +239,12 @@ df %>%
   geom_point(
     data = subs %>% filter(possession == "mil"),
     color = "darkgreen"
-  ) +
+    ) +
   ggrepel::geom_text_repel(
-    data = subs %>% filter(possession == "mil") ,
-    aes(label = sub_detail),
-    color = "darkgreen",
-    size = 3) +
+              data = subs %>% filter(possession == "mil") ,
+              aes(label = sub_detail),
+              color = "darkgreen",
+              size = 3) +
   scale_color_manual(values = c(Bucks = "darkgreen", Heat = "red")) +
   scale_y_continuous(limits = c(-30, 30),
                      breaks = seq(from = -30, to = 30, by = 10),

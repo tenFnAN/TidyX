@@ -119,7 +119,7 @@ model_fit <- tune_grid(
 ```{r}
 collect_metrics(model_fit)
 autoplot(model_fit)
-select_best(model_fit, "rsq")
+select_best(model_fit, "rmse")
 ```
 
 
@@ -164,8 +164,7 @@ fit_test
 
 ## Collect metrics
 collect_metrics(fit_test)
-
-
+ 
 ## plot of prediction vs true outcome
 fit_test %>%
   collect_predictions() %>%

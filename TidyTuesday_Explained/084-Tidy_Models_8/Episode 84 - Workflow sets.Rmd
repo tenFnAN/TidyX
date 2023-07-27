@@ -92,7 +92,7 @@ rf_spec <- rand_forest() %>%
   set_mode("regression") %>%
   set_engine("randomForest", importance = TRUE)
 
-knn_spec <- nearest_neighbor(neighbors = 4) %>%
+knn_spec <- nearest_neighbor(neighbors = 3) %>%
   set_mode("regression")
 
 ```
@@ -103,8 +103,7 @@ knn_spec <- nearest_neighbor(neighbors = 4) %>%
 * Combine the pre-processing recipe and the three models together
 
 ```{r}
-
-
+ 
 wf_set <-workflow_set(
   preproc = list(insurance_rec),
   models = list(lm_spec, rf_spec, knn_spec)

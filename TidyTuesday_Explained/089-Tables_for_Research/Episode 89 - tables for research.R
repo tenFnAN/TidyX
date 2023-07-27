@@ -29,7 +29,7 @@ fit %>%
   gt() %>%
   
   gt::fmt_scientific(
-    p.value, decimals = 2,
+    'p.value', decimals = 2,
   ) %>% 
   
   tab_source_note(
@@ -54,7 +54,7 @@ fit %>%
   tab_footnote(
     footnote = "Transmission (0 = automatic, 1 = manual)",
     locations = cells_body(
-      columns = term, 
+      columns = 'term', 
       rows = 4
     )
   ) %>%

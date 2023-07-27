@@ -118,7 +118,7 @@ generate_snowflake <- function(n_trunk, n_branches, seed = NULL){
 }
 
 n_trunk <- sample(c(1:10), 1)
-generate_snowflake(n_trunk = n_trunk, n_branch = 6)
+generate_snowflake(n_trunk = n_trunk, n_branches = 6)
 
 library(camcorder)
 

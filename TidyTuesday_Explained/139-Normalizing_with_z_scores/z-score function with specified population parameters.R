@@ -77,8 +77,7 @@ dat %>%
 ## What if we had several columns of data?
 ## Fake Data
 set.seed(4)
-dat <- tibble(
-  
+dat <- tibble( 
   year = c(2023, 2020, 2020, 2022, 2023, 2021, 2019, 2020, 2023),
   value1 = runif(n = 9, min = 10, 30),
   value2 = runif(n = 9, min = 1, 15),

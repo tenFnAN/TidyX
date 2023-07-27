@@ -269,9 +269,7 @@ server <- function(input, output, session){
   output$pbp_table <- renderDT({
     displayedData$pbp
   },
-  selection = 'none',
-  rownames = FALSE,
-  editable = TRUE)
+  selection = 'none', rownames = FALSE, editable = TRUE)
   
   ## when updated, 
   proxy = dataTableProxy('pbp_table')

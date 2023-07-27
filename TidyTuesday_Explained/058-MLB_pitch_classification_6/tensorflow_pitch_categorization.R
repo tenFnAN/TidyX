@@ -8,7 +8,7 @@ editor_options:
 ---
   
   **Data courtest of {mlbgameday}:** https://github.com/keberwein/mlbgameday
-**Resource for understanding pitchf/x data:** https://library.fangraphs.com/misc/pitch-fx/
+  **Resource for understanding pitchf/x data:** https://library.fangraphs.com/misc/pitch-fx/
   **Resource on the features in the pitchf/x data:** Kagan, David. (2008). Fun with PitchFX Data. 
 
 

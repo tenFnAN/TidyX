@@ -10,7 +10,7 @@ library(ggdark)
 #--------------
 
 # read in MMA careers of select fighters
-all_careers_df <- fread('Guest_Explainers/Nate_Latshaw/fighter-mma-careers.csv')
+all_careers_df <- fread('TidyTuesday_Explained/111-Nate_Latshaw_datatable_and_UFC_Data/fighter-mma-careers.csv')
 
 unique(all_careers_df$FighterName)
 

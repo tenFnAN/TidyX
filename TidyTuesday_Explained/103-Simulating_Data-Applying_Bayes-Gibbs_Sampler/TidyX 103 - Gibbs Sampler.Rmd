@@ -43,7 +43,7 @@ sd_sim <- rnorm(n = 1e3, mean = 2, sd = 0.375)
 
 sd_sim_avg <- mean(sd_sim)
 sd_sim_var <- var(sd_sim)
-sd_sim_sd <- sd(sd_sim)
+sd_sim_sd  <- sd(sd_sim)
 
 sd_sim_avg
 sd_sim_var
@@ -78,7 +78,7 @@ sd(obs_efficiency)
 ```{r}
 
 ## Set the number of simulations & burnin rate
-N_sims <- 11000
+N_sims  <- 11000
 burn_in <- 1000
 
 ## Get priors

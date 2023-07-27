@@ -109,9 +109,7 @@ server <- function(input, output, session){
   fit <- reactive({
     
     dat <- input_dataset() %>%
-      select(
-        dependent_var = input$y_var, 
-        input$x_vars) %>%
+      select( dependent_var = input$y_var, input$x_vars) %>%
       ## This is new for selecting training set
       slice(train_ids())
     
