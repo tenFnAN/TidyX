@@ -28,7 +28,7 @@ suppressPackageStartupMessages({
   library(tidyverse)
   library(knitr)
   library(tidytuesdayR) #remotes::install_github("thebioengineer/tidytuesdayR")
-  library(colortable) #remotes::install_github("thebioengineer/colortable@vctr_refactor")
+  library(colortable) #remotes::install_github("thebioengineer/colortable")
 })
 ```
 

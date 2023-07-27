@@ -39,7 +39,7 @@ coffee_data %>%
   coord_flip()+
   geom_hline(aes(yintercept = endpoints), lwd = 1.5, color = "grey")+
   geom_segment(aes(x=country_of_origin, xend=country_of_origin, y=endpoints, yend=values, color = pos_neg), lwd = 1.2)+
-  geom_image(aes(image=coffee), size=.05)+ # this add the coffee bean image
+  # geom_image(aes(image=coffee), size=.05)+ # this add the coffee bean image
   ylab("score")+
   xlab("country")+
   scale_color_brewer(palette = "BrBG")+

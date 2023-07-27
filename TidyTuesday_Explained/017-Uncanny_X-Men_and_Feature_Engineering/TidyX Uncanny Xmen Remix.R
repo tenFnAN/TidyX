@@ -13,7 +13,7 @@ with(flyinghugging, cor.test(fly, hug))
 # r2 between fly and hug -- same as the multiple r2 from the linear regression
 with(flyinghugging, cor.test(fly, hug))$estimate ^ 2
 
-
+summary(flyinghugging)
 # Show how regression with z-scores produces a beta that represents the correlation coefficient
 # NOTE: was having an issue with the sd() function working on her dataset -- kept returning NA
 flyinghugging %>%

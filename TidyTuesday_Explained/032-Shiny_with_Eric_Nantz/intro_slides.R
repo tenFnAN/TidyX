@@ -1,7 +1,10 @@
 library(sidescroller)
 library(here)
+devtools::install_github('https://github.com/thebioengineer/sidescroller')
 
-
+install.packages("/Users/barry/Dropbox/FEAR.tar.gz", repos = NULL)
+install.packages( paste0(here(), '/TidyTuesday_Explained/032-Shiny_with_Eric_Nantz/lib/sidescroll-1.0.0') , repos = NULL)
+ 
 pres <- sidescroller(
   list(
     htmltools::htmlDependency(

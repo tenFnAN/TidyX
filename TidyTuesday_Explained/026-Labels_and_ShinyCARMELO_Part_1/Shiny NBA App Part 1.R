@@ -100,7 +100,8 @@ server <- function(input, output){
   
     nba_stats %>%
       filter(Player == input$Player)
-    
+    # player_stats = nba_stats %>% filter(Player == unique(nba_stats$Player)[1])
+     
   })
   
   
